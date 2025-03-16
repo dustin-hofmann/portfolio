@@ -1,0 +1,195 @@
+/* src/styles/global.css */
+
+:root {
+  --background: #ffffff;
+  --text: #333;
+  --primary: #0077b6;
+  --secondary: #48cae4;
+  --accent: #ffb703;
+  --online: #43b581;
+  --idle: #faa61a;
+  --dnd: #f04747;
+  --offline: #747f8d;
+  --spotify: #1DB954;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
+    Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
+  background-color: var(--background);
+  color: var(--text);
+  line-height: 1.6;
+}
+
+.container {
+  width: 100%;
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+/* Header Styles */
+.header {
+  padding: 20px 0;
+}
+
+.nav__container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.logo {
+  font-size: 1.2rem;
+  font-weight: 600;
+}
+
+/* Hero Section */
+.hero {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: center;
+  min-height: calc(100vh - 200px);
+  position: relative;
+}
+
+.hero__title {
+  font-size: 3rem;
+  font-weight: 700;
+  margin-bottom: 0.5rem;
+}
+
+.hero__text {
+  font-size: 2rem;
+  font-weight: 400;
+  margin-bottom: 2rem;
+}
+
+/* Status Bubbles */
+.status-bubble {
+  display: inline-flex;
+  align-items: center;
+  background-color: #f5f5f5;
+  border-radius: 20px;
+  padding: 8px 15px;
+  margin-right: 10px;
+  margin-bottom: 10px;
+  font-size: 0.9rem;
+  transition: all 0.3s ease;
+}
+
+.status-content {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.status-bubble i {
+  font-size: 1.1rem;
+}
+
+#discord-status.online i {
+  color: var(--online);
+}
+
+#discord-status.idle i {
+  color: var(--idle);
+}
+
+#discord-status.dnd i {
+  color: var(--dnd);
+}
+
+#discord-status.offline i {
+  color: var(--offline);
+}
+
+#spotify-status.active i {
+  color: var(--spotify);
+}
+
+/* Footer Styles */
+.footer {
+  padding: 40px 0;
+  margin-top: auto;
+}
+
+.footer__social-list {
+  display: flex;
+  justify-content: center;
+  list-style: none;
+  margin-bottom: 20px;
+}
+
+.footer__social-list li {
+  margin: 0 10px;
+}
+
+.footer__social-list-icon {
+  font-size: 1.5rem;
+  transition: color 0.3s ease;
+}
+
+.footer__social-list-icon:hover {
+  color: var(--primary);
+}
+
+.footer__copyright {
+  text-align: center;
+  font-size: 0.9rem;
+  color: #666;
+}
+
+/* Responsive Styles */
+@media (max-width: 768px) {
+  .hero__title {
+    font-size: 2.5rem;
+  }
+  
+  .hero__text {
+    font-size: 1.5rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .hero__title {
+    font-size: 2rem;
+  }
+  
+  .hero__text {
+    font-size: 1.25rem;
+  }
+  
+  .footer__social-list-icon {
+    font-size: 1.25rem;
+  }
+}
+
+@keyframes wave {
+  0% { transform: rotate(0deg); }
+  10% { transform: rotate(14deg); }
+  20% { transform: rotate(-8deg); }
+  30% { transform: rotate(14deg); }
+  40% { transform: rotate(-4deg); }
+  50% { transform: rotate(10deg); }
+  60% { transform: rotate(0deg); }
+  100% { transform: rotate(0deg); }
+}
+
+.hero__title span[role="img"] {
+  display: inline-block;
+  animation: wave 2.5s ease infinite;
+  transform-origin: 70% 70%;
+}

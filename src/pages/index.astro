@@ -1,11 +1,16 @@
 ---
-import Welcome from '../components/Welcome.astro';
+// src/pages/index.astro
 import Layout from '../layouts/Layout.astro';
-
-// Welcome to Astro! Wondering what to do next? Check out the Astro documentation at https://docs.astro.build
-// Don't want to use any of this? Delete everything in this file, the `assets`, `components`, and `layouts` directories, and start fresh.
 ---
 
-<Layout>
-	<Welcome />
+<Layout 
+  title="Dustin Hofmann | Informatik Student aus Dortmund"
+  description="Dualer Informatikstudent aus Dortmund"
+>
+  <div class="container">
+    <div class="hero">
+      <h2 class="hero__title">Hey, I'm Dustin <span role="img" aria-label="wave">👋</span></h2>
+      <h1 class="hero__text">Dualer Informatikstudent aus Dortmund</h1>
+    </div>
+  </div>
 </Layout>

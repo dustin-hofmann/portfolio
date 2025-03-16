@@ -1,22 +1,85 @@
-<!doctype html>
-<html lang="en">
-	<head>
-		<meta charset="UTF-8" />
-		<meta name="viewport" content="width=device-width" />
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-		<meta name="generator" content={Astro.generator} />
-		<title>Astro Basics</title>
-	</head>
-	<body>
-		<slot />
-	</body>
-</html>
+<!-- Layout.astro -->
+---
+const { title, description } = Astro.props;
+import '../styles/global.css';
+---
 
-<style>
-	html,
-	body {
-		margin: 0;
-		width: 100%;
-		height: 100%;
-	}
-</style>
+<!DOCTYPE html>
+<html lang="de">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{title}</title>
+    <meta name="description" content={`${description} | Webentwicklung, Frontend-Entwicklung, Astro.js, React, JavaScript`}> <!-- Erweiterte Keywords -->
+    
+    <!-- Strukturierte Daten JSON-LD -->
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "Person",
+        "name": "Dustin Hofmann",
+        "url": "https://portfolio.dustinhofmann.de",
+        "sameAs": [
+          "https://twitter.com/username",
+          "https://github.com/username",
+          "https://instagram.com/username",
+          "https://discord.com/users/190829626518405120"
+        ],
+        "jobTitle": "Dualer Informatikstudent",
+        "address": {
+          "@type": "PostalAddress",
+          "addressLocality": "Dortmund",
+          "addressCountry": "Deutschland"
+        }
+      }
+    </script>
+
+    <!-- Open Graph / Social Media Metadaten bleiben unverändert -->
+    <meta property="og:type" content="website">
+    <meta property="og:title" content={title}>
+    <meta property="og:description" content={description}>
+    <meta property="og:site_name" content="Dustin Hofmann | Informatik Student">
+    <meta property="twitter:card" content="summary">
+    <meta property="twitter:creator" content="dus.tin">
+    <meta property="twitter:title" content={title}>
+    <meta property="twitter:description" content={description}>
+
+    <link rel="shortcut icon" href="/images/favicon.png">
+    <link rel="stylesheet" href="/styles/global.css">
+    <!-- Lokale Speicherung der FontAwesome Icons empfohlen -->
+    <link rel="stylesheet" href="/fonts/font-awesome.min.css">
+  </head>
+
+  <body>
+    <div id="__next">
+      <main>
+        <slot />
+      </main>
+
+      <footer class="footer">
+        <div class="container">
+          <ul class="footer__social-list">
+            <li>
+              <a href="https://twitter.com/username" target="_blank" rel="noreferrer" class="footer__social-list-icon">
+                <i class="fab fa-twitter"></i>
+              </a>
+            </li>
+            <!-- Weitere Social Icons bleiben unverändert -->
+          </ul>
+          <p class="footer__copyright">© Dustin Hofmann 2025</p>
+        </div>
+      </footer>
+    </div>
+
+    <style>
+      .fade-in {
+        opacity: 0;
+        transition: opacity 1s ease;
+      }
+      .fade-in.animated {
+        opacity: 1;
+      }
+    </style>
+
+  </body>
+</html>
